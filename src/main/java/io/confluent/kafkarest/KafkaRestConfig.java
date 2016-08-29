@@ -147,14 +147,6 @@ public class KafkaRestConfig extends RestConfig {
     "Maximum amount of time to poll for records by a consumer.";
   public static final int SIMPLE_CONSUMER_MAX_POLL_TIME_DEFAULT = 500;
 
-  public static final String SIMPLE_CONSUMER_CACHE_MAX_RECORDS_CONFIG = "simpleconsumer.cache.max.records";
-  private static final String
-    SIMPLE_CONSUMER_CACHE_MAX_RECORDS_DOC =
-    "Maximum number of records that can be stored for a specific topic-partition combination."
-     + " Records with higher offsets replace records with lower ones"
-     + " Must be greater that 0.";
-  public static final int SIMPLE_CONSUMER_CACHE_MAX_RECORDS_DEFAULT = 1000;
-
   private static final int KAFKAREST_PORT_DEFAULT = 8082;
 
   private static final String METRICS_JMX_PREFIX_DEFAULT_OVERRIDE = "kafka.rest";
@@ -196,15 +188,12 @@ public class KafkaRestConfig extends RestConfig {
                 Importance.MEDIUM, CONSUMER_THREADS_DOC)
         .define(CONSUMER_INSTANCE_TIMEOUT_MS_CONFIG, Type.INT, CONSUMER_INSTANCE_TIMEOUT_MS_DEFAULT,
                 Importance.LOW, CONSUMER_INSTANCE_TIMEOUT_MS_DOC)
-
         .define(SIMPLE_CONSUMER_MAX_POLL_TIME_CONFIG, Type.INT, SIMPLE_CONSUMER_MAX_POLL_TIME_DEFAULT,
                 Importance.LOW, SIMPLE_CONSUMER_MAX_POLL_TIME_DOC)
         .define(SIMPLE_CONSUMER_MAX_POOL_SIZE_CONFIG, Type.INT, SIMPLE_CONSUMER_MAX_POOL_SIZE_DEFAULT,
                 Importance.MEDIUM, SIMPLE_CONSUMER_MAX_POOL_SIZE_DOC)
         .define(SIMPLE_CONSUMER_POOL_TIMEOUT_MS_CONFIG, Type.INT, SIMPLE_CONSUMER_POOL_TIMEOUT_MS_DEFAULT,
-                Importance.LOW, SIMPLE_CONSUMER_POOL_TIMEOUT_MS_DOC)
-        .define(SIMPLE_CONSUMER_CACHE_MAX_RECORDS_CONFIG, Type.INT, SIMPLE_CONSUMER_CACHE_MAX_RECORDS_DEFAULT,
-                Importance.MEDIUM, SIMPLE_CONSUMER_CACHE_MAX_RECORDS_DOC);
+                Importance.LOW, SIMPLE_CONSUMER_POOL_TIMEOUT_MS_DOC);
   }
 
   private Time time;
